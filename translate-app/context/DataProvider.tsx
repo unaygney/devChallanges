@@ -7,6 +7,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
+import { useDebounce } from "use-debounce";
 
 interface MyContextType {
   search: string;
@@ -20,13 +21,15 @@ const MyContext = createContext<MyContextType | undefined>(undefined);
 
 export const MyContextProvider: FC<MyContextProviderProps> = ({ children }) => {
   const [search, setSearch] = useState("");
+  const [value] = useDebounce(search, 1000);
 
   const sharedData: MyContextType = useMemo(
     () => ({
       search,
       setSearch,
+      value,
     }),
-    [search]
+    [search, value]
   );
 
   return <MyContext.Provider value={sharedData}>{children}</MyContext.Provider>;
