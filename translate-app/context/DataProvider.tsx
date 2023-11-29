@@ -1,0 +1,41 @@
+"use client";
+import React, {
+  createContext,
+  useContext,
+  FC,
+  ReactNode,
+  useMemo,
+  useState,
+} from "react";
+
+interface MyContextType {
+  search: string;
+}
+
+interface MyContextProviderProps {
+  children: ReactNode;
+}
+
+const MyContext = createContext<MyContextType | undefined>(undefined);
+
+export const MyContextProvider: FC<MyContextProviderProps> = ({ children }) => {
+  const [search, setSearch] = useState("");
+
+  const sharedData: MyContextType = useMemo(
+    () => ({
+      search,
+      setSearch,
+    }),
+    [search]
+  );
+
+  return <MyContext.Provider value={sharedData}>{children}</MyContext.Provider>;
+};
+
+export const useMyContext = (): MyContextType => {
+  const context = useContext(MyContext);
+  if (!context) {
+    throw new Error("useMyContext must be used within a MyContextProvider");
+  }
+  return context;
+};
