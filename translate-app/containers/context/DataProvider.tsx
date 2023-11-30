@@ -11,6 +11,8 @@ import { useDebounce } from "use-debounce";
 
 interface MyContextType {
   search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  value: string;
 }
 
 interface MyContextProviderProps {
@@ -20,7 +22,7 @@ interface MyContextProviderProps {
 const MyContext = createContext<MyContextType | undefined>(undefined);
 
 export const MyContextProvider: FC<MyContextProviderProps> = ({ children }) => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("Hello,how are you?");
   const [value] = useDebounce(search, 1000);
 
   const sharedData: MyContextType = useMemo(
