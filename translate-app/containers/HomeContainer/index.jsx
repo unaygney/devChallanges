@@ -6,6 +6,7 @@ import { BUTTONS } from "./constant";
 import CopyIcon from "@/assets/icons/Copy.svg";
 import SoundIcon from "@/assets/icons/sound_max_fill.svg";
 import ChangeIcon from "@/assets/icons/Horizontal_top_left_main.svg";
+import SortIcon from "@/assets/icons/Sort_alfa.svg";
 
 function HomeContainer() {
   const { search, setSearch, value } = useMyContext();
@@ -74,7 +75,7 @@ function HomeContainer() {
   };
 
   return (
-    <div className="w-full h-full my-20 flex flex-col justify-center items-center gap-4 px-6">
+    <div className="w-full h-full  flex flex-col lg:flex-row justify-center items-center gap-4 px-6">
       <div className="bg-[#212936cc] bg-opacity-80 w-full  border border-[#4D5562] border-solid rounded-3xl p-6">
         <div className="flex md:gap-3 gap-1 flex-wrap  items-center border-b border-[#4d5562] border-solid pb-4">
           {buttons.map((button) => (
@@ -115,8 +116,9 @@ function HomeContainer() {
               </div>
               <button
                 onClick={getTranslate}
-                className=" w-[100px] md:w-[200px] h-[48px] bg-[#3662E3] text-white rounded-lg  "
+                className=" w-[100px] md:w-[200px] h-[48px] bg-[#3662E3] text-white rounded-xl border border-[#CDD5E0] border-solid inline-flex items-center gap-2 justify-center "
               >
+                <SortIcon />
                 Translate
               </button>
             </div>
@@ -135,7 +137,7 @@ function HomeContainer() {
               onClick={() => handleClick2(button.id)}
             />
           ))}
-          <button className=" w-8 h-8  p-1 border-2 border-[#4D5562] border-solid rounded-lg ">
+          <button className=" w-8 h-8  p-1 border-2 border-[#4D5562] border-solid rounded-lg ml-auto ">
             <ChangeIcon />
           </button>
         </div>
