@@ -13,23 +13,10 @@ function HomeContainer() {
   const [buttons2, setButtons2] = useState(BUTTONS);
   const [translationData, setTranslationData] = useState("");
 
-  interface FilteredDataType {
-    id: number;
-    title: string;
-    type: "Primary";
-    isActive: boolean;
-    tag: string;
-  }
-  type HandleCopyFunction = (text: string) => void;
+  const [filteredData, setFilteredData] = useState(null);
+  const [filteredData2, setFilteredData2] = useState(null);
 
-  const [filteredData, setFilteredData] = useState<FilteredDataType | null>(
-    null
-  );
-  const [filteredData2, setFilteredData2] = useState<FilteredDataType | null>(
-    null
-  );
-
-  const handleClick = (clickedId: number) => {
+  const handleClick = (clickedId) => {
     const updatedButtons = buttons.map((button) => {
       if (button.id === clickedId) {
         return { ...button, isActive: true };
@@ -42,7 +29,7 @@ function HomeContainer() {
     setFilteredData(filteredData);
   };
 
-  const handleClick2 = (clickedId: number) => {
+  const handleClick2 = (clickedId) => {
     const updatedButtons = buttons2.map((button) => {
       if (button.id === clickedId) {
         return { ...button, isActive: true };
@@ -76,11 +63,11 @@ function HomeContainer() {
     }
   };
 
-  const handleCopy: HandleCopyFunction = (text) => {
+  const handleCopy = (text) => {
     navigator.clipboard.writeText(text);
   };
 
-  const readTheSpeech: HandleCopyFunction = (speechText) => {
+  const readTheSpeech = (speechText) => {
     const msg = new SpeechSynthesisUtterance();
     msg.text = speechText;
     window.speechSynthesis.speak(msg);
