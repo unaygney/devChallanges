@@ -4,20 +4,13 @@ import { clsx } from "clsx";
 interface ButtonProps {
   title: string;
   className?: string;
-  type: "Primary" | "Secondary" | "Success";
   isActive?: boolean;
+  tag?: string;
   id?: any;
   onClick?: (id: number) => void;
 }
 
-function Button({
-  title,
-  className,
-  type,
-  isActive,
-  onClick,
-  id,
-}: ButtonProps) {
+function Button({ title, className, isActive, onClick, id, tag }: ButtonProps) {
   const handleClick = () => {
     if (onClick && id !== undefined) {
       onClick(id);
@@ -25,6 +18,7 @@ function Button({
   };
   return (
     <button
+      tag={tag}
       onClick={handleClick}
       className={clsx(
         "text-base font-medium   px-2 py-1 ",

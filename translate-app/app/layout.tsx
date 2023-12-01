@@ -19,7 +19,7 @@ export default function RootLayout({
       <body
         className={
           (DM_SANS.className,
-          "w-full h-screen bg-hero bg-no-repeat bg-cover bg-center md:bg-right")
+          "w-full min-h-screen bg-hero bg-no-repeat bg-cover bg-center md:bg-right ")
         }
       >
         {children}
