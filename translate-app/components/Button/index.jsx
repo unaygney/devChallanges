@@ -1,16 +1,7 @@
 import React from "react";
 import { clsx } from "clsx";
 
-interface ButtonProps {
-  title: string;
-  className?: string;
-  isActive?: boolean;
-  tag?: string;
-  id?: any;
-  onClick?: (id: number) => void;
-}
-
-function Button({ title, className, isActive, onClick, id, tag }: ButtonProps) {
+function Button({ title, className, isActive, onClick, id, tag }) {
   const handleClick = () => {
     if (onClick && id !== undefined) {
       onClick(id);
