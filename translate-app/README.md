@@ -1,0 +1,1 @@
+devChallanges translate app .
