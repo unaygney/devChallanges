@@ -3,10 +3,20 @@ import Image from "next/image";
 
 function Card({ coffee }) {
   return (
-    <div className="w-[25%] min-w-[200px] bg-white">
+    <div className="w-[26%] min-w-[200px] bg-transparent">
       <div className="flex flex-col">
-        <div className="absolute w-full h-[250px]">
-          <Image src={coffee.image} alt={`${coffee.name} image`} fill />
+        <div className="relative w-full h-[180px] rounded-lg overflow-hidden ">
+          <Image
+            src={coffee.image}
+            alt={`${coffee.name} image`}
+            fill
+            placeholder="blur"
+          />
+          {coffee.popular && (
+            <span className="bg-[#F6C768] text-[#111315] text-xs px-1.5 py-1 rounded-xl absolute top-2 left-2 font-semibold">
+              Popular
+            </span>
+          )}
         </div>
       </div>
     </div>
