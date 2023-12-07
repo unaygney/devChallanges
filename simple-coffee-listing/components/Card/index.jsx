@@ -9,8 +9,8 @@ function Card({ coffee }) {
           <Image
             src={coffee.image}
             alt={`${coffee.name} image`}
+            quality={90}
             fill
-            placeholder="blur"
           />
           {coffee.popular && (
             <span className="bg-[#F6C768] text-[#111315] text-xs px-1.5 py-1 rounded-xl absolute top-2 left-2 font-semibold">
