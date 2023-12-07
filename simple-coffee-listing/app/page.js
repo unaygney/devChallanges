@@ -5,9 +5,9 @@ export const metadata = {
   description: "Coffee Listing App",
 };
 
-export default function Home() {
+export default async function Home() {
   return (
-    <main className="w-full h-full bg-[#111315]">
+    <main className="w-full min-h-screen bg-[#111315] ">
       <HomePageContainer />
     </main>
   );

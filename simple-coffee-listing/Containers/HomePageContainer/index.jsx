@@ -4,8 +4,8 @@ import HeroImage from "@/public/bg-cafe.jpg";
 import CardComponent from "@/components/CardComponent";
 function HomePageContainer() {
   return (
-    <div className="w-full h-full flex flex-col ">
-      <div className="w-full h-1/3 relative ">
+    <div className="w-full h-full flex flex-col pb-20 ">
+      <div className="w-full h-[300px] relative ">
         <Image
           src={HeroImage}
           alt="Hero Image"
